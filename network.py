@@ -8,14 +8,10 @@ using backpropagation.  Note that I have focused on making the code
 simple, easily readable, and easily modifiable.  It is not optimized,
 and omits many desirable features.
 """
-
-#### Libraries
-
-# Standard library
 import random
-
-# Third-party libraries
 import numpy as np
+import pickle
+import os
 
 class Network(object):
 
@@ -32,9 +28,17 @@ class Network(object):
         ever used in computing the outputs from later layers."""
         self.num_layers = len(sizes)
         self.sizes = sizes
-        self.biases = [np.random.randn(y, 1) for y in sizes[1:]]
-        self.weights = [np.random.randn(y, x)
-                        for x, y in zip(sizes[:-1], sizes[1:])]
+        self.save_file = 'data/network.pkl'
+
+        if os.path.exists(self.save_file):
+            print('Loading saved network parameters')
+            with open(self.save_file, 'rb') as f:
+                self.biases, self.weights = pickle.load(f)
+        else:
+            print('No saved network found. Initializing randomly')
+            self.biases = [np.random.randn(y, 1) for y in sizes[1:]]
+            self.weights = [np.random.randn(y, x)
+                            for x, y in zip(sizes[:-1], sizes[1:])]
 
     def feedforward(self, a):
         """Return the output of the network if ``a`` is input."""
@@ -66,6 +70,8 @@ class Network(object):
                     j, self.evaluate(test_data), n_test)
             else:
                 print "Epoch {0} complete".format(j)
+
+        self.save_network()
 
     def update_mini_batch(self, mini_batch, eta):
         """Update the network's weights and biases by applying
@@ -131,6 +137,11 @@ class Network(object):
         """Return the vector of partial derivatives \partial C_x /
         \partial a for the output activations."""
         return (output_activations-y)
+
+    def save_network(self):
+        with open(self.save_file, 'wb') as f:
+            pickle.dump((self.biases, self.weights), f)
+        print('Network parameters saved')
 
 #### Miscellaneous functions
 def sigmoid(z):
