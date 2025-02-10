@@ -45,6 +45,5 @@ This is a list with all the steps which are expressed by the equation:
 When applying backpropagation, we process one training example at a time to compute the gradients of the cost function with respect to the weights and biases. This means the cost function for a single example has the following form:
 
 ```math
-C = \frac{1}{2}\sum_{j}^{} {y_j - a_j) ^ 2
-
+C = \frac{1}{2}\sum_{j}^{} (y_j - a_j) ^ 2
 ```
