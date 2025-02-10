@@ -24,7 +24,7 @@ We subtract the 2 vectors element-wise: $`v = y - a`$. The result is a 10 dimens
 \|v\| = \sqrt{\sum_{i=1}^{10}v_i^2}
 ```
 
-In the equation we see $\|y(x) - a\|^2$, meaning we square the norm, which simplifies to $`\|y(x) - a\|^2 = \sum_{i=1}^{10}(y_i - a_i)^2`$
+In the equation we see $`\|y(x) - a\|^2`$, meaning we square the norm, which simplifies to $`\|y(x) - a\|^2 = \sum_{i=1}^{10}(y_i - a_i)^2`$
 
 This is just the sum of squared differences 
 
@@ -41,3 +41,10 @@ This is a list with all the steps which are expressed by the equation:
 - This is done for every training example $x$
 - Sum over all training examples
 - Divide by $\frac{1}{2n}\$ (where $n$ is the number of training examples)
+
+When applying backpropagation, we process one training example at a time to compute the gradients of the cost function with respect to the weights and biases. This means the cost function for a single example has the following form:
+
+```math
+C = \frac{1}{2}\sum_{j}^{} {y_j - a_j) ^ 2
+
+```
