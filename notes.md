@@ -19,5 +19,5 @@ We subtract the 2 vectors element-wise: $`v = y - a`$. The result is a 10 dimens
 
 ### The Euclidean Norm
 ```math
-\|v\| = \sqrt{\displaystyle\sum_{i=1}^{10} v_i^2}
+\|v\| = \sqrt{\left( \sum_{i=1}^{10} v_i^2 \right)}
 ```
