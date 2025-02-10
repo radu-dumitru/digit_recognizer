@@ -42,8 +42,5 @@ This is a list with all the steps which are expressed by the equation:
 - Sum over all training examples
 - Divide by $\frac{1}{2n}\$ (where $n$ is the number of training examples)
 
-When applying backpropagation, we process one training example at a time to compute the gradients of the cost function with respect to the weights and biases. This means the cost function for a single example has the following form:
+When applying backpropagation, we process one training example at a time to compute the gradients of the cost function with respect to the weights and biases. This means the cost function for a single example has the following form: $C = \frac{1}{2}\sum_{j}^{} (y_j - a_j) ^ 2$
 
-```math
-C = \frac{1}{2}\sum_{j}^{} (y_j - a_j) ^ 2
-```
