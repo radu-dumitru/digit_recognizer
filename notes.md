@@ -1,3 +1,5 @@
+# ** We are going to assume an architecture with an input layer made up of 768 neurons, a hidden layer made up of 30 neurons and an output layer which contains 10 neurons (768, 30, 10)**
+
 # The Cost Function
 
 ```math
@@ -42,5 +44,24 @@ This is a list with all the steps which are expressed by the equation:
 - Sum over all training examples
 - Divide by $\frac{1}{2n}\$ (where $n$ is the number of training examples)
 
-When applying backpropagation, we process one training example at a time to compute the gradients of the cost function with respect to the weights and biases. This means the cost function for a single example has the following form: $C = \frac{1}{2}\sum_{j}^{} (y_j - a_j) ^ 2$
+When applying backpropagation, we process one training example at a time to compute the gradients of the cost function with respect to the weights and biases. This means the cost function for a single example has the following form:
+
+```math
+C = \frac{1}{2}\sum_{j}^{} (y_j - a_j) ^ 2
+```
+
+# Compute the Derivative of Cost w.r.t. Output Activations 
+
+We need this derivative: $'\fract{\partial C}{\partial a_j}'$
+
+We start from: $'C = \frac{1}{2}\sum_{j}^{} (y_j - a_j) ^ 2'$
+
+We are taking the derivative with respect to $'a_j'$. This means that all the other temrs in the summation are constant and their derivatives are 0. So we can focus on the term that contains $'a_j'$: $'C = \fract{1}{2}(y_j - a_j)^2'$
+
+We take the derivative with respect to $'a_j'$: $'\fract{\partial C}{\partial a_j}=\fract{1}{2} \ast2 (y_j - a_j) \ast \fract{\partial(y_j - a_j)}{\partial a_j}'$
+
+Since $'\fract{\partial (y_j - a_j}{\partial a_j}'=-1$
+
+We get $'\fract{\partial C}{\partial a_j}=a_j - y_j'$
+
 
