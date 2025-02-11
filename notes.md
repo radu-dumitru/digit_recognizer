@@ -61,6 +61,15 @@ Since $`\frac{\partial (y_j - a_j}{\partial a_j}=-1`$
 
 We get $`\frac{\partial C}{\partial a_j}=a_j - y_j`$
 
+Code: 
+
+```python
+def cost_derivative(self, output_activations, y):
+	"""Return the vector of partial derivatives \partial C_x /
+        \partial a for the output activations."""
+        return (output_activations-y)
+```
+
 # Compute the derivative of the weighted sum from the last layer
 
 We want: $`\frac{\partial C}{\partial z}`$
@@ -75,6 +84,12 @@ $`a=\sigma(z)`$, we differentiate the sigmoid function and we get $`\frac{\parti
 
 $`\frac{\partial C}{\partial z}=(a-y) \cdot a(1-a)`$
 
+Code
+
+```python
+delta = self.cost_derivative(activations[-1], y) * sigmoid_prime(zs[-1])
+```
+
 # Compute the derivatives of the weights used by the last layer
 
 Weights affect the cost via the weighted sum: $`z = w \cdot a_{prev} + b`$
@@ -87,6 +102,12 @@ Since $`\frac{\partial C}{\partial z}`$ is known and  $`\frac{\partial z}{\parti
 
 We get $`\frac{\partial C}{\partial w}=\frac{\partial C}{\partial z} \cdot a_{prev}`$
 
+Code
+
+```python
+nabla_w[-1] = np.dot(delta, activations[-2].transpose())
+```
+
 # Compute the derivatives of the biases used by the last layer
 
 We need $`\frac{\partial C}{\partial b}`$
@@ -94,6 +115,12 @@ We need $`\frac{\partial C}{\partial b}`$
 The bias affects the cost function through z: $`\frac{\partial C}{\partial b}=\frac{\partial C}{\partial z} \cdot \frac{\partial z}{\partial b}`$
 
 Since $`\frac{\partial z}{\partial b}=1`$ we get $`\frac{\partial C}{\partial b}=\frac{\partial C}{\partial z}`$ which we already know
+
+Code
+
+```python
+nabla_b[-1] = delta
+```
 
 
 
