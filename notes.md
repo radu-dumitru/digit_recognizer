@@ -55,7 +55,7 @@ We start from: $`C = \frac{1}{2}\sum_{j}^{} (y_j - a_j) ^ 2`$
 
 We are taking the derivative with respect to $`a_j`$. This means that all the other temrs in the summation are constant and their derivatives are 0. So we can focus on the term that contains $`a_j`$: $`C = \frac{1}{2}(y_j - a_j)^2`$
 
-We take the derivative with respect to $`a_j`$: $`\frac{\partial C}{\partial a_j}=\frac{1}{2} \ast2 (y_j - a_j) \cdot \frac{\partial(y_j - a_j)}{\partial a_j}`$
+We take the derivative with respect to $`a_j`$: $`\frac{\partial C}{\partial a_j}=\frac{1}{2} \cdot 2 (y_j - a_j) \cdot \frac{\partial(y_j - a_j)}{\partial a_j}`$
 
 Since $`\frac{\partial (y_j - a_j}{\partial a_j}=-1`$
 
@@ -74,3 +74,26 @@ We can apply the chain rule: $`\frac{\partial C}{\partial z}=\frac{\partial C}{\
 $`a=\sigma(z)`$, we differentiate the sigmoid function and we get $`\frac{\partial a}{\partial z}=a(1-a)`$
 
 $`\frac{\partial C}{\partial z}=(a-y) \cdot a(1-a)`$
+
+# Compute the derivatives of the weights used by the last layer
+
+Weights affect the cost via the weighted sum: $`z = w \cdot a_{prev} + b`$
+
+We need $`\frac{\partial C}{\partial w}`$
+
+Using the chain rule: $`\frac{\partial C}{\partial w}=\frac{\partial C}{\partial z} \cdot \frac{\partial z}{\partial w}`$
+
+Since $`\frac{\partial C}{\partial z}`$ is known and  $`\frac{\partial z}{\partial w}=a_{prev}`$
+
+We get $`\frac{\partial C}{\partial w}=\frac{\partial C}{\partial z} \cdot a_{prev}`$
+
+# Compute the derivatives of the biases used by the last layer
+
+We need $`\frac{\partial C}{\partial b}`$
+
+The bias affects the cost function through z: $`\frac{\partial C}{\partial b}=\frac{\partial C}{\partial z} \cdot \frac{\partial z}{\partial b}`$
+
+Since $`\frac{\partial z}{\partial b}=1`$ we get $`\frac{\partial C}{\partial b}=\frac{\partial C}{\partial z}`$ which we already know
+
+
+
