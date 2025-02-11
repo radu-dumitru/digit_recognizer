@@ -55,7 +55,7 @@ We start from: $`C = \frac{1}{2}\sum_{j}^{} (y_j - a_j) ^ 2`$
 
 We are taking the derivative with respect to $`a_j`$. This means that all the other temrs in the summation are constant and their derivatives are 0. So we can focus on the term that contains $`a_j`$: $`C = \frac{1}{2}(y_j - a_j)^2`$
 
-We take the derivative with respect to $`a_j`$: $`\frac{\partial C}{\partial a_j}=\frac{1}{2} \ast2 (y_j - a_j) \ast \frac{\partial(y_j - a_j)}{\partial a_j}`$
+We take the derivative with respect to $`a_j`$: $`\frac{\partial C}{\partial a_j}=\frac{1}{2} \ast2 (y_j - a_j) \cdot \frac{\partial(y_j - a_j)}{\partial a_j}`$
 
 Since $`\frac{\partial (y_j - a_j}{\partial a_j}=-1`$
 
@@ -65,12 +65,12 @@ We get $`\frac{\partial C}{\partial a_j}=a_j - y_j`$
 
 We want: $`\frac{\partial C}{\partial z}`$
 
-We know that $`z = w * a_prev + b`$
+We know that $`z = w \cdot a_{prev} + b`$
 
 Activations are computed using the sigmoid function: $`a = \sigma(z)`$
 
-We can apply the chain rule: $`\frac{\partial C}{\partial z}=\frac{\partial C}{\partial a} * \frac{\partial a}{\partial z}`$
+We can apply the chain rule: $`\frac{\partial C}{\partial z}=\frac{\partial C}{\partial a} \cdot \frac{\partial a}{\partial z}`$
 
 $`a=\sigma(z)`$, we differentiate the sigmoid function and we get $`\frac{\partial a}{\partial z}=a(1-a)`$
 
-$`\frac{\partial C}{\partial z}=(a-y)*a(1-a)`$
+$`\frac{\partial C}{\partial z}=(a-y) \cdot a(1-a)`$
