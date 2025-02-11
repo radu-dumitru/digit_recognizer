@@ -120,7 +120,7 @@ nabla_b[-1] = delta
 An activation function from the hidden layer doesn't affect the cost function directly, it first has an effect over all neurons from the output layer which in turn affect the cost function. To find the derivative we need to apply the chain rule: $`\frac{\partial C}{\partial a_{hidden}}`$
 
 ```math
-\frac{\partial C}{\partial a_{hidden}}=\sum_{j}^{} \frac{\partial C}{\partial z_{output,j} \cdot \frac{\partial z_{output,j}}{\partial a_{hidden}}
+\frac{\partial C}{\partial a_{hidden}}=\sum_{j}^{} \frac{\partial C}{\partial z_{output,j}} \cdot \frac{\partial z_{output,j}}{\partial a_{hidden}}
 ```
 Since all output neurons depend on $`a_{hidden}`$, we sum over all of them
 
