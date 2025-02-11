@@ -134,4 +134,4 @@ $`w_{ji}`$ is the weight connecting the hidden neuron i to the output neuron j
 
 Taking the derivative we get: $`\frac{\partial z_{output,j}}{\partial a_{hidden}}=w_j`$
 
-$`\frac{\partial C}{\partial a_{hidden}}=\sum_{j}^{} \frac{\partial C}{\partial z_{output,j}} \cdot \sigma'(z_{output,j} \cdot w_{j})`$
+$`\frac{\partial C}{\partial a_{hidden}}=\sum_{j}^{} \frac{\partial C}{\partial z_{output,j}} \cdot \sigma'(z_{output,j}) \cdot w_{j}`$
