@@ -21,10 +21,7 @@ $a$ - the output of the neural network. It is a 10 dimensional vector which cont
 
 We subtract the 2 vectors element-wise: $`v = y - a`$. The result is a 10 dimensional vector.
 
-### The Euclidean Norm
-```math
-\|v\| = \sqrt{\sum_{i=1}^{10}v_i^2}
-```
+### The Euclidean Norm: $`\|v\| = \sqrt{\sum_{i=1}^{10}v_i^2}`$
 
 In the equation we see $`\|y(x) - a\|^2`$, meaning we square the norm, which simplifies to $`\|y(x) - a\|^2 = \sum_{i=1}^{10}(y_i - a_i)^2`$
 
