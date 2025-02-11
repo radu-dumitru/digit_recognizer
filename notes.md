@@ -117,14 +117,14 @@ nabla_b[-1] = delta
 
 # Compute the derivatives of the activation functions from the hidden layer
 
-An activation function from the hidden layer doesn't affect the cost function directly, it first has an effect over all neurons from the output layer which in turn affect the cost function. To find the derivative we need to apply the chain rule: $`\frac{\partial C}{\partial a_{hidden}}`$
+An activation function from the hidden layer doesn't affect the cost function directly, it first has an effect over all neurons from the output layer which in turn affect the cost function. To find the derivative we need to apply the chain rule:
 
 ```math
 \frac{\partial C}{\partial a_{hidden}}=\sum_{j}^{} \frac{\partial C}{\partial z_{output,j}} \cdot \frac{\partial z_{output,j}}{\partial a_{hidden}}
 ```
 Since all output neurons depend on $`a_{hidden}`$, we sum over all of them
 
-We have already computed $`\frac{\partial C}{\partial z_{output,j}`$
+We have already computed $`\frac{\partial C}{\partial z_{output,j}}`$
 
 We now want to compute $`\frac{\partial z_{output,j}}{\partial a_{hidden}}`$
 
@@ -134,4 +134,4 @@ $`w_{ji}`$ is the weight connecting the hidden neuron i to the output neuron j
 
 Taking the derivative we get: $`\frac{\partial z_{output,j}}{\partial a_{hidden}}=w_j`$
 
-$`\frac{\partial C}{\partial a_{hidden}}=\sum_{j}^{} \frac{\partial C}{\partial z_{output,j} \cdot \sigma^'(z_{output,j} \cdot w_{j})`$
+$`\frac{\partial C}{\partial a_{hidden}}=\sum_{j}^{} \frac{\partial C}{\partial z_{output,j}} \cdot \sigma^'(z_{output,j} \cdot w_{j})`$
