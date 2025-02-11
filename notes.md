@@ -1,4 +1,4 @@
-# ** We are going to assume an architecture with an input layer made up of 768 neurons, a hidden layer made up of 30 neurons and an output layer which contains 10 neurons (768, 30, 10)**
+# We are going to assume an architecture with an input layer made up of 768 neurons, a hidden layer made up of 30 neurons and an output layer which contains 10 neurons (768, 30, 10)
 
 # The Cost Function
 
@@ -52,16 +52,16 @@ C = \frac{1}{2}\sum_{j}^{} (y_j - a_j) ^ 2
 
 # Compute the Derivative of Cost w.r.t. Output Activations 
 
-We need this derivative: $'\fract{\partial C}{\partial a_j}'$
+We need this derivative: $'\frac{\partial C}{\partial a_j}'$
 
 We start from: $'C = \frac{1}{2}\sum_{j}^{} (y_j - a_j) ^ 2'$
 
-We are taking the derivative with respect to $'a_j'$. This means that all the other temrs in the summation are constant and their derivatives are 0. So we can focus on the term that contains $'a_j'$: $'C = \fract{1}{2}(y_j - a_j)^2'$
+We are taking the derivative with respect to $'a_j'$. This means that all the other temrs in the summation are constant and their derivatives are 0. So we can focus on the term that contains $'a_j'$: $'C = \frac{1}{2}(y_j - a_j)^2'$
 
-We take the derivative with respect to $'a_j'$: $'\fract{\partial C}{\partial a_j}=\fract{1}{2} \ast2 (y_j - a_j) \ast \fract{\partial(y_j - a_j)}{\partial a_j}'$
+We take the derivative with respect to $'a_j'$: $'\frac{\partial C}{\partial a_j}=\frac{1}{2} \ast2 (y_j - a_j) \ast \frac{\partial(y_j - a_j)}{\partial a_j}'$
 
-Since $'\fract{\partial (y_j - a_j}{\partial a_j}'=-1$
+Since $'\frac{\partial (y_j - a_j}{\partial a_j}'=-1$
 
-We get $'\fract{\partial C}{\partial a_j}=a_j - y_j'$
+We get $'\frac{\partial C}{\partial a_j}=a_j - y_j'$
 
 
