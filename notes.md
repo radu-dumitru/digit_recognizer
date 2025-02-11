@@ -61,4 +61,16 @@ Since $`\frac{\partial (y_j - a_j}{\partial a_j}=-1`$
 
 We get $`\frac{\partial C}{\partial a_j}=a_j - y_j`$
 
+# Compute the derivative of the weighted sum from the last layer
 
+We want: $`\frac{\partial C}{\partial z}`$
+
+We know that $`z = w * a_prev + b`$
+
+Activations are computed using the sigmoid function: $`a = \sigma(z)`$
+
+We can apply the chain rule: $`\frac{\partial C}{\partial z}=\frac{\partial C}{\partial a} * \frac{\partial a}{\partial z}`$
+
+$`a=\sigma(z)`$, we differentiate the sigmoid function and we get $`\frac{\partial a}{\partial z}=a(1-a)`$
+
+$`\frac{\partial C}{\partial z}=(a-y)*a(1-a)`$
