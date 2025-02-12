@@ -136,8 +136,24 @@ $`\frac{\partial C}{\partial a_{hidden}}=\sum_{j}^{} \frac{\partial C}{\partial 
 
 # Compute the derivatives of the z functions from the hidden layer
 
-One z function from the hidden layer doens't affect the cost function directly but through the activation function that we have computed in the previous step $`\frac{\partial C}{\partial z_{hidden}}=\frac{\partial C}{\partial a_{hidden}} \cdot \frac{\partial a_{hidden}}{\partial z_{hidden}}`$
+One z function from the hidden layer doesn't affect the cost function directly but through the activation function that we have computed in the previous step $`\frac{\partial C}{\partial z_{hidden}}=\frac{\partial C}{\partial a_{hidden}} \cdot \frac{\partial a_{hidden}}{\partial z_{hidden}}`$
 
 We know that $`a = \sigma(z)`$
 
 $`\frac{\partial C}{\partial z_{hidden}}=\frac{\partial C}{\partial a_{hidden}} \cdot \sigma'(z)`$
+
+```python
+sp = sigmoid_prime(z)
+
+# each column represents one of the output neurons and each row contains the weights associated with that neuron
+self.weights[-l+1].transpose().shape = (30, 10)
+
+# the z functions from the output layer
+delta.shape = (10, 1)
+
+# the derivatives of the z functions with respect to the activation functions, all from the hidden layer
+sp.shape = (30, 1)
+
+# perspective: when multiplying the weights with delta you need to consider the weights as being associated with the neurons from the output layer, look at the output layer and not the hidden layer
+delta = np.dot(self.weights[-l+1].transpose(), delta) * sp
+```
