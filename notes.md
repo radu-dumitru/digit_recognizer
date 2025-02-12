@@ -156,7 +156,7 @@ Perspective: when multiplying the weights with delta you need to consider the we
 
 # Compute the derivatives of the weights which are used by the hidden layer
 
-The weights don't affect the cost function directly but through the z functions that we computed in the previous step. We need to use the chain rule: $`\frac{\partial C}{\partial w}=\frac{\partial C}{\partial z} \cdot \frac{\partial z}{partial w}`$
+The weights don't affect the cost function directly but through the z functions that we computed in the previous step. We need to use the chain rule: $`\frac{\partial C}{\partial w}=\frac{\partial C}{\partial z} \cdot \frac{\partial z}{\partial w}`$
 
 $`z = wa + b`$
 
@@ -166,4 +166,19 @@ $`\frac{\partial C}{\partial w}=\frac{\partial C}{\partial z} \cdot a`$
 
 ```python
 nabla_w[-l] = np.dot(delta, activations[-l-1].transpose())
+```
+
+
+# Compute the derivatives of the biases which are used by the hidden layer
+
+$`\frac{\partial C}{\partial b}=\frac{\partial C}{\partial z} \cdot \frac{\partial z}{\partial b}`$
+
+$`z = wa + b`$
+
+$`\frac{\partial z}{\partial b}=1`$
+
+$`\frac{\partial C}{\partial b}=\frac{\partial C}{\partial z}`$
+
+```python
+nabla_b[-l] = delta
 ```
