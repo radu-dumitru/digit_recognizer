@@ -132,4 +132,12 @@ We know that $`z = w_1a_1 + w_2a_2 + w_3a_3`$
 
 Taking the derivative with respect to one activation function we get: $`\frac{\partial z}{\partial a_1}=w_1`$
 
-$`\frac{\partial C}{\partial a_{hidden}}=\sum_{j}^{} \frac{\partial C}{\partial z_{output,j}} \cdot \sigma'(z_{output,j}) \cdot w_{j}`$
+$`\frac{\partial C}{\partial a_{hidden}}=\sum_{j}^{} \frac{\partial C}{\partial z_{output,j}} \cdot w_{j}`$
+
+# Compute the derivatives of the z functions from the hidden layer
+
+One z function from the hidden layer doens't affect the cost function directly but through the activation function that we have computed in the previous step $`\frac{\partial C}{\partial z_{hidden}}=\frac{\partial C}{\partial a_{hidden}} \cdot \frac{\partial a_{hidden}}{\partial z_{hidden}}`$
+
+We know that $`a = \sigma(z)`$
+
+$`\frac{\partial C}{\partial z_{hidden}}=\frac{\partial C}{\partial a_{hidden}} \cdot \sigma'(z)`$
