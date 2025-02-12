@@ -163,3 +163,7 @@ $`z = wa + b`$
 $`\frac{\partial z}{\partial w} = a`$
 
 $`\frac{\partial C}{\partial w}=\frac{\partial C}{\partial z} \cdot a`$
+
+```python
+nabla_w[-l] = np.dot(delta, activations[-l-1].transpose())
+```
