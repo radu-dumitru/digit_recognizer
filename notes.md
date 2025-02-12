@@ -146,13 +146,20 @@ $`\frac{\partial C}{\partial z_{hidden}}=\frac{\partial C}{\partial a_{hidden}} 
 sp = sigmoid_prime(z)
 delta = np.dot(self.weights[-l+1].transpose(), delta) * sp
 ```
-Each column represents one of the output neurons and each row contains the weights associated with that neuron
-self.weights[-l+1].transpose().shape is (30, 10)
+Each column represents one of the output neurons and each row contains the weights associated with that neuron: self.weights[-l+1].transpose().shape is (30, 10)
 
-The z functions from the output layer
-delta.shape is (10, 1)
+The z functions from the output layer: delta.shape is (10, 1)
 
-The derivatives of the z functions with respect to the activation functions, all from the hidden layer
-sp.shape is (30, 1)
+The derivatives of the z functions with respect to the activation functions, all from the hidden layer: sp.shape is (30, 1)
 
 Perspective: when multiplying the weights with delta you need to consider the weights as being associated with the neurons from the output layer, look at the output layer and not the hidden layer
+
+# Compute the derivatives of the weights which are used by the hidden layer
+
+The weights don't affect the cost function directly but through the z functions that we computed in the previous step. We need to use the chain rule: $`\frac{\partial C}{\partial w}=\frac{\partial C}{\partial z} \cdot \frac{\partial z}{partial w}`$
+
+$`z = wa + b`$
+
+$`\frac{\partial z}{\partial w} = a`$
+
+$`\frac{\partial C}{\partial w}=\frac{\partial C}{\partial z} \cdot a`$
