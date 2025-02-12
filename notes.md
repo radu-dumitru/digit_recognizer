@@ -144,16 +144,15 @@ $`\frac{\partial C}{\partial z_{hidden}}=\frac{\partial C}{\partial a_{hidden}} 
 
 ```python
 sp = sigmoid_prime(z)
-
-# each column represents one of the output neurons and each row contains the weights associated with that neuron
-self.weights[-l+1].transpose().shape = (30, 10)
-
-# the z functions from the output layer
-delta.shape = (10, 1)
-
-# the derivatives of the z functions with respect to the activation functions, all from the hidden layer
-sp.shape = (30, 1)
-
-# perspective: when multiplying the weights with delta you need to consider the weights as being associated with the neurons from the output layer, look at the output layer and not the hidden layer
 delta = np.dot(self.weights[-l+1].transpose(), delta) * sp
 ```
+Each column represents one of the output neurons and each row contains the weights associated with that neuron
+self.weights[-l+1].transpose().shape is (30, 10)
+
+The z functions from the output layer
+delta.shape is (10, 1)
+
+The derivatives of the z functions with respect to the activation functions, all from the hidden layer
+sp.shape is (30, 1)
+
+Perspective: when multiplying the weights with delta you need to consider the weights as being associated with the neurons from the output layer, look at the output layer and not the hidden layer
