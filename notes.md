@@ -128,10 +128,8 @@ We have already computed $`\frac{\partial C}{\partial z_{output,j}}`$
 
 We now want to compute $`\frac{\partial z_{output,j}}{\partial a_{hidden}}`$
 
-$`z_{output,j} = \sum_{i}{} w_{ji}a_{hidden} + b_j`$
+We know that $`z = w_1a_1 + w_2a_2 + w3_a_3`$
 
-$`w_{ji}`$ is the weight connecting the hidden neuron i to the output neuron j
-
-Taking the derivative we get: $`\frac{\partial z_{output,j}}{\partial a_{hidden}}=w_j`$
+Taking the derivative with respect to one hidden activation function we get: $`\frac{\partial z}{\partial a_{hidden}}=w`$
 
 $`\frac{\partial C}{\partial a_{hidden}}=\sum_{j}^{} \frac{\partial C}{\partial z_{output,j}} \cdot \sigma'(z_{output,j}) \cdot w_{j}`$
