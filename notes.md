@@ -128,7 +128,7 @@ We have already computed $`\frac{\partial C}{\partial z_{output,j}}`$
 
 We now want to compute $`\frac{\partial z_{output,j}}{\partial a_{hidden}}`$
 
-We know that $`z = w_1a_1 + w_2a_2 + w3_a_3`$
+We know that $`z = w_1a_1 + w_2a_2 + w_3a_3`$
 
 Taking the derivative with respect to one hidden activation function we get: $`\frac{\partial z}{\partial a_{hidden}}=w`$
 
