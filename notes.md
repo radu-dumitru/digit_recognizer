@@ -130,6 +130,6 @@ We now want to compute $`\frac{\partial z_{output,j}}{\partial a_{hidden}}`$
 
 We know that $`z = w_1a_1 + w_2a_2 + w_3a_3`$
 
-Taking the derivative with respect to one hidden activation function we get: $`\frac{\partial z}{\partial a_{hidden}}=w`$
+Taking the derivative with respect to one activation function we get: $`\frac{\partial z}{\partial a_1}=w_1`$
 
 $`\frac{\partial C}{\partial a_{hidden}}=\sum_{j}^{} \frac{\partial C}{\partial z_{output,j}} \cdot \sigma'(z_{output,j}) \cdot w_{j}`$
